@@ -181,10 +181,10 @@ methyAge <- function(betas, clock='HorvathS2013', age_info=NA, fit_method='Linea
     } else if(clock %in% c('BernabeuE2023c')){
       ## log predictor for samples younger than 20
       less_20 <- m_age[,1] < 20
-      if(sum(less_20) > 0){
-        m_age_L <- t(betas[less_20, ]) %*% matrix(data=coefs_L[rownames(m_age)[less_20]])
-        m_age[less_20, 1]  <- exp(m_age_L[, 1])
-      }
+      # if(sum(less_20) > 0){
+      #   m_age_L <- t(betas[less_20, ]) %*% matrix(data=coefs_L[rownames(m_age)[less_20]])
+      #   m_age[less_20, 1]  <- exp(m_age_L[, 1])
+      # }
     } else if(clock %in% c('LuA2023p1')){
       m_age[,1] <- exp(m_age[,1]) - 2
     } else if(clock %in% c('LuA2023p2')){
